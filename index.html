@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<script src="./image-slot.js"></script>
+<style>
+  body{margin:0;background:oklch(0.16 0.03 260);}
+  a{color:oklch(0.72 0.19 45);text-decoration:none;}
+  a:hover{color:oklch(0.78 0.19 50);}
+  ::selection{background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);}
+  .sm-nav-burger{display:none;}
+  @media (max-width: 860px) {
+    .sm-nav-links{display:none !important;}
+    .sm-nav-burger{display:flex !important;}
+  }
+</style>
+</helmet>
+
+<div style="font-family:'Manrope',sans-serif;background:oklch(0.16 0.03 260);color:oklch(0.97 0.01 260);overflow-x:hidden;">
+
+  <!-- NAV -->
+  <div style="position:sticky;top:0;z-index:50;background:oklch(0.16 0.03 260 / 0.92);backdrop-filter:blur(10px);border-bottom:1px solid oklch(1 0 0 / 0.08);">
+    <div style="max-width:1360px;margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <div style="display:flex;align-items:center;gap:10px;flex:none;">
+        <img src="assets/stickerman-logo.png" alt="The Sticker Man" style="height:44px;width:44px;object-fit:contain;" />
+        <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:20px;letter-spacing:0.02em;">
+          THE STICKER<span style="color:oklch(0.72 0.19 45);">MAN</span>
+        </div>
+      </div>
+      <div class="sm-nav-links" style="display:flex;align-items:center;gap:32px;flex:1;justify-content:center;min-width:0;">
+        <a href="#services" style="color:oklch(0.92 0.01 260);font-weight:600;font-size:14px;white-space:nowrap;" style-hover="color:oklch(0.72 0.19 45);">Services</a>
+        <a href="#industries" style="color:oklch(0.92 0.01 260);font-weight:600;font-size:14px;white-space:nowrap;" style-hover="color:oklch(0.72 0.19 45);">Industries</a>
+        <a href="#work" style="color:oklch(0.92 0.01 260);font-weight:600;font-size:14px;white-space:nowrap;" style-hover="color:oklch(0.72 0.19 45);">Our Work</a>
+        <a href="#about" style="color:oklch(0.92 0.01 260);font-weight:600;font-size:14px;white-space:nowrap;" style-hover="color:oklch(0.72 0.19 45);">About</a>
+        <a href="#contact" style="color:oklch(0.92 0.01 260);font-weight:600;font-size:14px;white-space:nowrap;" style-hover="color:oklch(0.72 0.19 45);">Contact</a>
+      </div>
+      <a href="#contact" class="sm-nav-links" style="flex:none;background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:13px;letter-spacing:0.03em;padding:12px 22px;border-radius:3px;white-space:nowrap;" style-hover="background:oklch(0.78 0.19 50);">START A PROJECT</a>
+      <div class="sm-nav-burger" onClick="{{ toggleMobileMenu }}" style="flex:none;width:44px;height:44px;align-items:center;justify-content:center;cursor:pointer;gap:5px;flex-direction:column;">
+        <span style="display:block;width:24px;height:2.5px;background:oklch(0.97 0.01 260);border-radius:2px;"></span>
+        <span style="display:block;width:24px;height:2.5px;background:oklch(0.97 0.01 260);border-radius:2px;"></span>
+        <span style="display:block;width:24px;height:2.5px;background:oklch(0.97 0.01 260);border-radius:2px;"></span>
+      </div>
+    </div>
+    <sc-if value="{{ mobileMenuOpen }}" hint-placeholder-val="{{ false }}">
+      <div style="border-top:1px solid oklch(1 0 0 / 0.08);padding:16px 24px 24px;display:flex;flex-direction:column;gap:4px;">
+        <a href="#services" onClick="{{ closeMobileMenu }}" style="color:oklch(0.92 0.01 260);font-weight:700;font-size:16px;padding:14px 4px;border-bottom:1px solid oklch(1 0 0 / 0.06);">Services</a>
+        <a href="#industries" onClick="{{ closeMobileMenu }}" style="color:oklch(0.92 0.01 260);font-weight:700;font-size:16px;padding:14px 4px;border-bottom:1px solid oklch(1 0 0 / 0.06);">Industries</a>
+        <a href="#work" onClick="{{ closeMobileMenu }}" style="color:oklch(0.92 0.01 260);font-weight:700;font-size:16px;padding:14px 4px;border-bottom:1px solid oklch(1 0 0 / 0.06);">Our Work</a>
+        <a href="#about" onClick="{{ closeMobileMenu }}" style="color:oklch(0.92 0.01 260);font-weight:700;font-size:16px;padding:14px 4px;border-bottom:1px solid oklch(1 0 0 / 0.06);">About</a>
+        <a href="#contact" onClick="{{ closeMobileMenu }}" style="color:oklch(0.92 0.01 260);font-weight:700;font-size:16px;padding:14px 4px;border-bottom:1px solid oklch(1 0 0 / 0.06);">Contact</a>
+        <a href="#contact" onClick="{{ closeMobileMenu }}" style="margin-top:14px;text-align:center;background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 22px;border-radius:3px;">START A PROJECT</a>
+      </div>
+    </sc-if>
+  </div>
+
+  <!-- HERO -->
+  <div style="position:relative;min-height:88vh;display:flex;align-items:center;">
+    <div style="position:absolute;inset:0;z-index:0;">
+      <image-slot id="hero-main" shape="rect" src="assets/rsw5-welcome-mural.jpg" placeholder="Drop hero photo: large branded warehouse or environmental wall transformation — show scale" style="width:100%;height:100%;"></image-slot>
+      <div style="position:absolute;inset:0;background:linear-gradient(90deg, oklch(0.16 0.03 260 / 0.95) 0%, oklch(0.16 0.03 260 / 0.75) 45%, oklch(0.16 0.03 260 / 0.35) 100%);pointer-events:none;"></div>
+    </div>
+    <div style="position:relative;z-index:1;max-width:1360px;margin:0 auto;padding:clamp(56px,10vw,100px) 24px clamp(48px,8vw,90px);width:100%;">
+      <div style="max-width:720px;">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:24px;">
+          <img src="assets/stickerman-logo.png" alt="The Sticker Man" style="height:36px;width:36px;object-fit:contain;" />
+          <div style="display:inline-block;background:oklch(0.72 0.19 45 / 0.15);border:1px solid oklch(0.72 0.19 45 / 0.4);color:oklch(0.72 0.19 45);font-weight:700;font-size:12px;letter-spacing:0.08em;padding:6px 14px;border-radius:3px;">SERVING MIAMI-DADE · BROWARD · PALM BEACH</div>
+        </div>
+        <h1 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(40px,6vw,76px);line-height:0.98;letter-spacing:-0.01em;margin:0 0 24px;">Bring Your Brand Into the <span style="color:oklch(0.72 0.19 45);">Real World.</span></h1>
+        <p style="font-size:19px;line-height:1.6;color:oklch(0.88 0.01 260);max-width:600px;margin:0 0 36px;">From warehouse graphics and environmental branding to signage, murals, wraps, floors, and custom installations — we bring ideas to life from concept through production and installation.</p>
+        <div style="display:flex;gap:16px;flex-wrap:wrap;margin-bottom:28px;">
+          <a href="#contact" style="background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 30px;border-radius:3px;" style-hover="background:oklch(0.78 0.19 50);">Start a Project</a>
+          <a href="#work" style="background:transparent;border:1.5px solid oklch(1 0 0 / 0.4);color:oklch(0.97 0.01 260);font-weight:700;font-size:15px;padding:15px 30px;border-radius:3px;" style-hover="border-color:oklch(0.72 0.19 45);color:oklch(0.72 0.19 45);">View Our Work</a>
+        </div>
+        <p style="font-size:13px;color:oklch(0.65 0.02 260);margin:0;">Trusted for commercial, enterprise, government, and custom branding projects across South Florida.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLIENT PROOF -->
+  <div style="background:oklch(0.13 0.035 260);border-top:1px solid oklch(1 0 0 / 0.08);border-bottom:1px solid oklch(1 0 0 / 0.08);padding:44px 32px;">
+    <div style="max-width:1360px;margin:0 auto;text-align:center;">
+      <p style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:oklch(0.65 0.02 260);text-transform:uppercase;margin:0 0 28px;">Trusted by Businesses That Expect the Job Done Right</p>
+      <div style="display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:48px;">
+        <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.94 0.01 260);letter-spacing:-0.01em;">amazon</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;color:oklch(0.85 0.01 260);letter-spacing:0.01em;">FIGHT SPORTS CLUB</div>
+        <div style="font-family:'Archivo',sans-serif;font-weight:800;font-size:16px;color:oklch(0.85 0.01 260);letter-spacing:0.01em;">G2G COAST TO COAST CUSTOMS</div>
+        <div style="font-family:monospace;font-size:12px;color:oklch(0.5 0.02 260);border:1px dashed oklch(0.5 0.02 260);padding:10px 20px;border-radius:3px;">[client logo]</div>
+        <div style="font-family:monospace;font-size:12px;color:oklch(0.5 0.02 260);border:1px dashed oklch(0.5 0.02 260);padding:10px 20px;border-radius:3px;">[client logo]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POSITIONING -->
+  <div style="padding:clamp(64px,12vw,120px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:1000px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(32px,4.5vw,52px);line-height:1.06;margin:0 0 28px;">More Than Printing. <span style="color:oklch(0.72 0.19 45);">We Build Branded Experiences.</span></h2>
+      <p style="font-size:18px;line-height:1.75;color:oklch(0.82 0.01 260);margin:0 0 16px;">Your brand does not stop at a logo. It lives on the walls people see every day. The floors they walk across. The signs that guide them. The vehicles on the road. The entrance customers walk through.</p>
+      <p style="font-size:18px;line-height:1.75;color:oklch(0.82 0.01 260);margin:0 0 40px;">Whether you need a single sign or an entire commercial environment transformed, we help you think through the idea, create the design, produce the materials, and professionally install the finished work.</p>
+      <a href="#contact" style="display:inline-block;background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 32px;border-radius:3px;" style-hover="background:oklch(0.78 0.19 50);">Tell Us What You Want to Create</a>
+    </div>
+  </div>
+
+  <!-- CORE SERVICES -->
+  <div id="services" style="padding:clamp(56px,10vw,100px) 24px clamp(64px,12vw,120px);background:oklch(0.13 0.035 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <div style="max-width:640px;margin:0 0 56px;">
+        <p style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:oklch(0.72 0.19 45);text-transform:uppercase;margin:0 0 14px;">What We Do</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4vw,44px);line-height:1.08;margin:0;">Everything You Need to Bring the Vision to Life.</h2>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1px;background:oklch(1 0 0 / 0.08);border:1px solid oklch(1 0 0 / 0.08);">
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">◆</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Environmental Branding</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Transform offices, warehouses, storefronts, and commercial spaces into environments that actually feel like your brand.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Environmental Branding →</a>
+        </div>
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">▦</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Warehouse &amp; Facility Solutions</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Safer, clearer, better-branded facilities with signage, floor markings, safety graphics, and directional systems.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Warehouse Solutions →</a>
+        </div>
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">▲</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Signs &amp; Banners</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Custom commercial signage and large-format graphics built to communicate clearly and make an impact.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Signs &amp; Banners →</a>
+        </div>
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">◼</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Wall Graphics &amp; Murals</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Turn blank walls into something people remember — branded vinyl, wallpaper, and large-scale murals.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Walls &amp; Murals →</a>
+        </div>
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">➤</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Vehicle &amp; Fleet Branding</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Turn your vehicles into moving brand assets with commercial wraps, lettering, and fleet graphics.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Vehicle Wraps →</a>
+        </div>
+        <div style="background:oklch(0.13 0.035 260);padding:36px;display:flex;flex-direction:column;gap:16px;">
+          <div style="width:44px;height:44px;background:oklch(0.72 0.19 45 / 0.14);border-radius:3px;display:flex;align-items:center;justify-content:center;font-size:20px;">✎</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:21px;margin:0;">Commercial Printing &amp; Brand Materials</h3>
+          <p style="font-size:15px;line-height:1.65;color:oklch(0.75 0.015 260);margin:0;flex:1;">Business cards, flyers, stickers, uniforms, and promotional materials to keep your brand consistent.</p>
+          <a href="#" style="font-weight:700;font-size:14px;">Explore Commercial Printing →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WAREHOUSE FEATURE -->
+  <div style="background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);padding:clamp(56px,10vw,100px) 24px;">
+    <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center;">
+      <div>
+        <p style="font-size:13px;font-weight:800;letter-spacing:0.08em;text-transform:uppercase;margin:0 0 16px;opacity:0.7;">Warehouse &amp; Facility Specialists</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 24px;">Built for the Way Your Facility Works.</h2>
+        <p style="font-size:17px;line-height:1.7;margin:0 0 16px;font-weight:600;">A warehouse is more than square footage. It is a system.</p>
+        <p style="font-size:16px;line-height:1.7;margin:0 0 28px;">People need to know where to walk, where to work, and how to move safely — while your facility still represents your company professionally. We combine functionality with visual execution to support both operations and brand experience.</p>
+        <div style="display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="#" style="background:oklch(0.16 0.03 260);color:oklch(0.97 0.01 260);font-weight:800;font-size:15px;padding:15px 28px;border-radius:3px;">Explore Warehouse &amp; Facility Solutions</a>
+          <a href="#contact" style="background:transparent;border:1.5px solid oklch(0.16 0.03 260 / 0.5);color:oklch(0.16 0.03 260);font-weight:700;font-size:15px;padding:14px 28px;border-radius:3px;">Schedule a Site Survey</a>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">Floor safety lines</div>
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">Work-zone markings</div>
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">SOP graphics</div>
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">Directional signage</div>
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">Wall graphics</div>
+        <div style="background:oklch(0.16 0.03 260 / 0.08);border:1.5px solid oklch(0.16 0.03 260 / 0.25);border-radius:4px;padding:16px;font-weight:700;font-size:14px;">Facility branding</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- WHY THE STICKER MAN -->
+  <div style="padding:clamp(64px,12vw,120px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <div style="max-width:680px;margin:0 auto 64px;text-align:center;">
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4vw,46px);line-height:1.08;margin:0 0 20px;">One Partner. From Idea to Installation.</h2>
+        <p style="font-size:17px;line-height:1.7;color:oklch(0.78 0.01 260);margin:0;">You should not need one company to design the project, another to print it, another to measure the site, and someone else to install it.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:32px;">
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">01</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">Creative Direction</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Have an idea but not the finished design? We help think through the concept and what the final result should accomplish.</p>
+        </div>
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">02</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">Graphic Design</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Custom artwork from scratch, or work within your existing brand standards.</p>
+        </div>
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">03</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">Site Survey &amp; Measurement</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">We evaluate the environment, dimensions, surfaces, and project requirements.</p>
+        </div>
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">04</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">In-House Printing</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Printing is handled in-house, giving us direct control over production and final quality.</p>
+        </div>
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">05</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">Custom Production</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Every project is built around the specific application rather than forced into a generic template.</p>
+        </div>
+        <div>
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:15px;color:oklch(0.72 0.19 45);margin-bottom:10px;">06</div>
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:18px;margin:0 0 10px;">Professional Installation</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">The final installation matters just as much as the design — clean, precise execution.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- BRAND PHILOSOPHY -->
+  <div style="position:relative;padding:clamp(72px,14vw,140px) 24px;">
+    <div style="position:absolute;inset:0;z-index:0;">
+      <image-slot id="philosophy-bg" shape="rect" src="assets/big-stepper-mural.jpg" placeholder="Drop photo: dramatic finished wall mural or environmental install" style="width:100%;height:100%;"></image-slot>
+      <div style="position:absolute;inset:0;background:oklch(0.11 0.035 260 / 0.82);pointer-events:none;"></div>
+    </div>
+    <div style="position:relative;z-index:1;max-width:820px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1.08;margin:0 0 28px;">A Space Should Feel Different <span style="color:oklch(0.72 0.19 45);">After We Leave.</span></h2>
+      <p style="font-size:18px;line-height:1.8;color:oklch(0.85 0.01 260);margin:0;">The best projects change the environment. They create energy. They make a workplace feel more intentional and help people understand where they need to go. Not simply printing — transformation.</p>
+    </div>
+  </div>
+
+  <!-- FEATURED WORK -->
+  <div id="work" style="padding:clamp(64px,12vw,120px) 24px;background:oklch(0.13 0.035 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:56px;">
+        <div style="max-width:640px;">
+          <p style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:oklch(0.72 0.19 45);text-transform:uppercase;margin:0 0 14px;">Featured Work</p>
+          <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4vw,44px);line-height:1.08;margin:0;">See What Happens When the Vision Becomes Real.</h2>
+        </div>
+        <a href="#" style="font-weight:700;font-size:15px;white-space:nowrap;">View Our Work →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;">
+        <div>
+          <image-slot id="work-1" shape="rounded" radius="4" src="assets/amazon-dock-doors.jpg" placeholder="Warehouse & facility work" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Warehouses &amp; Facilities</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Safety systems, signage, environmental transformations.</p>
+        </div>
+        <div>
+          <image-slot id="work-2" shape="rounded" radius="4" src="assets/big-stepper-mural.jpg" placeholder="Walls & murals" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Walls &amp; Murals</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Custom vinyl, murals, wallpaper, company branding.</p>
+        </div>
+        <div>
+          <image-slot id="work-3" shape="rounded" radius="4" src="assets/storefront-signage.jpg" placeholder="Commercial signage" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Commercial Signage</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Interior, exterior, directional, and custom signage.</p>
+        </div>
+        <div>
+          <image-slot id="work-4" shape="rounded" radius="4" placeholder="Vehicle branding" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Vehicle Branding</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Commercial wraps, fleet graphics, lettering, decals.</p>
+        </div>
+        <div>
+          <image-slot id="work-5" shape="rounded" radius="4" src="assets/rsw5-values-wall.jpg" placeholder="Corporate & workplace" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Corporate &amp; Workplace</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Reception areas, walls, doors, employee spaces.</p>
+        </div>
+        <div>
+          <image-slot id="work-6" shape="rounded" radius="4" placeholder="Events" style="width:100%;height:clamp(200px,55vw,260px);"></image-slot>
+          <p style="font-weight:800;font-size:15px;margin:14px 0 0;">Events</p>
+          <p style="font-size:13.5px;color:oklch(0.65 0.02 260);margin:4px 0 0;">Banners, entrances, backdrops, temporary environments.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROCESS -->
+  <div style="padding:clamp(64px,12vw,120px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(30px,4vw,46px);line-height:1.08;margin:0 0 64px;text-align:center;">From Concept to Install.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;">
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">01</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Discover</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">Understand the goal, the space, and who will experience it.</p>
+        </div>
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">02</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Survey</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">Measure and evaluate the space and surfaces.</p>
+        </div>
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">03</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Create</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">Develop the design, layout, and material approach.</p>
+        </div>
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">04</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Produce</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">Print and fabricate in-house once approved.</p>
+        </div>
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">05</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Install</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">Professional installation with attention to detail.</p>
+        </div>
+        <div style="border-top:3px solid oklch(0.72 0.19 45);padding:24px 16px 0;">
+          <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:26px;color:oklch(0.72 0.19 45);margin-bottom:10px;">06</div>
+          <h3 style="font-size:16px;font-weight:800;margin:0 0 8px;">Transform</h3>
+          <p style="font-size:13.5px;line-height:1.6;color:oklch(0.68 0.015 260);margin:0;">The result should feel like it belongs there.</p>
+        </div>
+      </div>
+      <div style="text-align:center;margin-top:56px;">
+        <a href="#contact" style="display:inline-block;background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 32px;border-radius:3px;" style-hover="background:oklch(0.78 0.19 50);">Start Your Project</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMMERCIAL + SMALL BUSINESS -->
+  <div style="padding:clamp(56px,10vw,100px) 24px;background:oklch(0.22 0.035 260);">
+    <div style="max-width:900px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 22px;">Big Projects. Small Details. <span style="color:oklch(0.72 0.19 45);">Same Standard.</span></h2>
+      <p style="font-size:16.5px;line-height:1.75;color:oklch(0.78 0.01 260);margin:0 0 32px;">The Sticker Man works on large commercial environments, but we also know the smaller pieces matter — business cards, banners, shirts, flyers, decals, or a single sign. You do not need an entire warehouse transformation to work with us.</p>
+      <a href="#" style="display:inline-block;background:transparent;border:1.5px solid oklch(0.72 0.19 45);color:oklch(0.72 0.19 45);font-weight:800;font-size:15px;padding:15px 30px;border-radius:3px;" style-hover="background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);">Request Pricing</a>
+    </div>
+  </div>
+
+  <!-- FOUNDER / ABOUT -->
+  <div id="about" style="padding:clamp(64px,12vw,120px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:1360px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:48px;align-items:center;">
+      <image-slot id="founder-photo" shape="rounded" radius="4" src="assets/founder-installing.jpg" placeholder="Founder at work / on a job site" style="width:100%;height:clamp(280px,70vw,420px);"></image-slot>
+      <div>
+        <p style="font-size:13px;font-weight:700;letter-spacing:0.08em;color:oklch(0.72 0.19 45);text-transform:uppercase;margin:0 0 16px;">About The Sticker Man</p>
+        <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,42px);line-height:1.1;margin:0 0 24px;">Built by Someone Who Still Cares About the Details.</h2>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(0.78 0.01 260);margin:0 0 16px;">With more than 10 years of hands-on experience, the founder has spent years designing, producing, installing, and finding ways to turn ideas into something physical.</p>
+        <p style="font-size:16.5px;line-height:1.75;color:oklch(0.78 0.01 260);margin:0 0 32px;">Every project starts with listening — understanding the client, the space, and what the final result should feel like. Then figuring out how to make it real.</p>
+        <a href="#" style="font-weight:700;font-size:15px;">Meet The Sticker Man →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTERPRISE / GOVERNMENT PROOF -->
+  <div style="padding:clamp(56px,10vw,100px) 24px;background:oklch(0.13 0.035 260);">
+    <div style="max-width:1100px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 24px;">Built for Serious Environments.</h2>
+      <p style="font-size:16.5px;line-height:1.75;color:oklch(0.78 0.01 260);margin:0 auto 48px;max-width:760px;">The Sticker Man has experience completing projects for major companies, enterprise facilities, warehouses, and government clients — environments that require accurate measurements, professional production, and reliable follow-through.</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:16px;text-align:left;max-width:900px;margin:0 auto 48px;">
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Accurate measurements</div>
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Clear communication</div>
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Professional production</div>
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Large-scale execution</div>
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Clean installation</div>
+        <div style="font-size:14px;font-weight:600;color:oklch(0.85 0.01 260);padding:14px 0;border-top:1px solid oklch(1 0 0 / 0.1);">Attention to detail</div>
+      </div>
+      <a href="#contact" style="display:inline-block;background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 32px;border-radius:3px;" style-hover="background:oklch(0.78 0.19 50);">Discuss a Commercial Project</a>
+    </div>
+  </div>
+
+  <!-- SERVICE AREA -->
+  <div style="padding:clamp(56px,10vw,100px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 48px;text-align:center;">Created in Miami. Built Across South Florida.</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:32px;">
+        <div style="border:1px solid oklch(1 0 0 / 0.1);border-radius:4px;padding:28px;">
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;color:oklch(0.72 0.19 45);margin:0 0 12px;">Miami-Dade County</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Miami, Doral, Hialeah, Miami Lakes, Kendall, Homestead, and surrounding areas.</p>
+        </div>
+        <div style="border:1px solid oklch(1 0 0 / 0.1);border-radius:4px;padding:28px;">
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;color:oklch(0.72 0.19 45);margin:0 0 12px;">Broward County</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Fort Lauderdale, Hollywood, Miramar, Pembroke Pines, Pompano Beach, and surrounding areas.</p>
+        </div>
+        <div style="border:1px solid oklch(1 0 0 / 0.1);border-radius:4px;padding:28px;">
+          <h3 style="font-family:'Archivo',sans-serif;font-weight:800;font-size:19px;color:oklch(0.72 0.19 45);margin:0 0 12px;">Palm Beach County</h3>
+          <p style="font-size:14.5px;line-height:1.65;color:oklch(0.72 0.015 260);margin:0;">Boca Raton, Delray Beach, West Palm Beach, and surrounding areas.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TESTIMONIALS -->
+  <div style="padding:clamp(56px,10vw,100px) 24px;background:oklch(0.13 0.035 260);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 56px;text-align:center;">What Clients Say</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:28px;">
+        <div style="background:oklch(0.16 0.03 260);border:1px solid oklch(1 0 0 / 0.08);border-radius:4px;padding:32px;">
+          <div style="color:oklch(0.72 0.19 45);font-size:20px;letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
+          <p style="font-size:15.5px;line-height:1.7;color:oklch(0.85 0.01 260);margin:0 0 20px;font-style:italic;">"[Client testimonial — enterprise or warehouse project]"</p>
+          <p style="font-size:14px;font-weight:700;color:oklch(0.6 0.02 260);margin:0;">— [Client Name / Company]</p>
+        </div>
+        <div style="background:oklch(0.16 0.03 260);border:1px solid oklch(1 0 0 / 0.08);border-radius:4px;padding:32px;">
+          <div style="color:oklch(0.72 0.19 45);font-size:20px;letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
+          <p style="font-size:15.5px;line-height:1.7;color:oklch(0.85 0.01 260);margin:0 0 20px;font-style:italic;">"[Client testimonial — creative / environmental project]"</p>
+          <p style="font-size:14px;font-weight:700;color:oklch(0.6 0.02 260);margin:0;">— [Client Name / Company]</p>
+        </div>
+        <div style="background:oklch(0.16 0.03 260);border:1px solid oklch(1 0 0 / 0.08);border-radius:4px;padding:32px;">
+          <div style="color:oklch(0.72 0.19 45);font-size:20px;letter-spacing:2px;margin-bottom:16px;">★★★★★</div>
+          <p style="font-size:15.5px;line-height:1.7;color:oklch(0.85 0.01 260);margin:0 0 20px;font-style:italic;">"[Client testimonial — repeat commercial customer]"</p>
+          <p style="font-size:14px;font-weight:700;color:oklch(0.6 0.02 260);margin:0;">— [Client Name / Company]</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FAQ -->
+  <div style="padding:clamp(56px,10vw,100px) 24px;background:oklch(0.16 0.03 260);">
+    <div style="max-width:840px;margin:0 auto;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(28px,3.6vw,40px);line-height:1.1;margin:0 0 48px;text-align:center;">Frequently Asked Questions</h2>
+      <sc-for list="{{ faqs }}" as="faq" hint-placeholder-count="8">
+        <div style="border-bottom:1px solid oklch(1 0 0 / 0.1);">
+          <div onClick="{{ faq.toggle }}" style="display:flex;justify-content:space-between;align-items:center;gap:16px;padding:22px 4px;cursor:pointer;">
+            <span style="font-weight:700;font-size:16px;">{{ faq.q }}</span>
+            <span style="font-size:20px;color:oklch(0.72 0.19 45);flex:none;">{{ faq.symbol }}</span>
+          </div>
+          <sc-if value="{{ faq.open }}" hint-placeholder-val="{{ false }}">
+            <p style="font-size:15px;line-height:1.7;color:oklch(0.72 0.015 260);margin:0 0 22px;padding:0 4px;">{{ faq.a }}</p>
+          </sc-if>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <div id="contact" style="position:relative;padding:clamp(72px,14vw,140px) 24px;">
+    <div style="position:absolute;inset:0;z-index:0;">
+      <image-slot id="final-cta-bg" shape="rect" src="assets/dock-sunset.jpg" placeholder="Drop finished project photo (wide shot)" style="width:100%;height:100%;"></image-slot>
+      <div style="position:absolute;inset:0;background:oklch(0.11 0.035 260 / 0.85);pointer-events:none;"></div>
+    </div>
+    <div style="position:relative;z-index:1;max-width:760px;margin:0 auto;text-align:center;">
+      <h2 style="font-family:'Archivo',sans-serif;font-weight:900;font-size:clamp(32px,5vw,54px);line-height:1.06;margin:0 0 24px;">What Do You Want to <span style="color:oklch(0.72 0.19 45);">Create?</span></h2>
+      <p style="font-size:17px;line-height:1.7;color:oklch(0.85 0.01 260);margin:0 0 40px;">Maybe you have finished artwork. Maybe you only have the idea. Bring us the vision — we'll help figure out how to make it real.</p>
+      <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+        <a href="#" style="background:oklch(0.72 0.19 45);color:oklch(0.16 0.03 260);font-weight:800;font-size:15px;padding:16px 32px;border-radius:3px;" style-hover="background:oklch(0.78 0.19 50);">Start Your Project</a>
+        <a href="#" style="background:transparent;border:1.5px solid oklch(1 0 0 / 0.4);color:oklch(0.97 0.01 260);font-weight:700;font-size:15px;padding:15px 32px;border-radius:3px;">Request a Quote</a>
+      </div>
+      <p style="font-size:14px;color:oklch(0.65 0.02 260);margin:0;">Call · Text · Email · WhatsApp — [PHONE NUMBER] · [EMAIL ADDRESS]</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div style="background:oklch(0.09 0.035 260);padding:72px 32px 32px;border-top:1px solid oklch(1 0 0 / 0.08);">
+    <div style="max-width:1360px;margin:0 auto;">
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:40px;margin-bottom:56px;">
+        <div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px;">
+            <img src="assets/stickerman-logo.png" alt="The Sticker Man" style="height:48px;width:48px;object-fit:contain;" />
+            <div style="font-family:'Archivo',sans-serif;font-weight:900;font-size:18px;">THE STICKER<span style="color:oklch(0.72 0.19 45);">MAN</span></div>
+          </div>
+          <p style="font-size:13.5px;line-height:1.65;color:oklch(0.6 0.02 260);margin:0;max-width:260px;">Creative production, environmental branding, commercial printing, and professional installation serving Miami-Dade, Broward, and Palm Beach County.</p>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:800;letter-spacing:0.06em;color:oklch(0.5 0.02 260);text-transform:uppercase;margin:0 0 18px;">Services</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Environmental Branding</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Warehouse Solutions</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Signs &amp; Banners</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Wall Graphics &amp; Murals</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Vehicle Wraps</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Commercial Printing</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:800;letter-spacing:0.06em;color:oklch(0.5 0.02 260);text-transform:uppercase;margin:0 0 18px;">Industries</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Warehouses &amp; Distribution</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Corporate Offices</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Retail &amp; Storefronts</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Government</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Events</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:800;letter-spacing:0.06em;color:oklch(0.5 0.02 260);text-transform:uppercase;margin:0 0 18px;">Company</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <a href="#about" style="font-size:13.5px;color:oklch(0.78 0.01 260);">About</a>
+            <a href="#work" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Our Work</a>
+            <a href="#" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Process</a>
+            <a href="#contact" style="font-size:13.5px;color:oklch(0.78 0.01 260);">Contact</a>
+          </div>
+        </div>
+        <div>
+          <p style="font-size:12px;font-weight:800;letter-spacing:0.06em;color:oklch(0.5 0.02 260);text-transform:uppercase;margin:0 0 18px;">Service Area</p>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <span style="font-size:13.5px;color:oklch(0.78 0.01 260);">Miami-Dade County</span>
+            <span style="font-size:13.5px;color:oklch(0.78 0.01 260);">Broward County</span>
+            <span style="font-size:13.5px;color:oklch(0.78 0.01 260);">Palm Beach County</span>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid oklch(1 0 0 / 0.08);padding-top:24px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;">
+        <p style="font-size:12.5px;color:oklch(0.5 0.02 260);margin:0;">© 2026 The Sticker Man LLC. All rights reserved.</p>
+        <p style="font-size:12.5px;color:oklch(0.5 0.02 260);margin:0;">Miami, Florida</p>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+class Component extends DCLogic {
+  state = {
+    faqOpen: 0,
+    mobileMenuOpen: false
+  };
+  faqData = [
+    { q: "Can you help if I do not already have a design?", a: "Yes. The Sticker Man provides graphic design, creative direction, and brand strategy support. You can come to us with finished artwork, a rough concept, inspiration, or simply an idea of what you are trying to accomplish." },
+    { q: "Do you handle installation?", a: "Yes. Installation is a major part of what we do. We can handle the project from design and production through final installation." },
+    { q: "Do you perform site visits and measurements?", a: "Yes. For projects that require it, we can perform site surveys, measurements, and evaluations before production." },
+    { q: "Do you print in-house?", a: "Yes. The Sticker Man handles printing in-house, helping maintain direct control over production quality and final output." },
+    { q: "Do you work with warehouses and large commercial facilities?", a: "Yes. Warehouse, commercial, and facility projects are a major part of our work — signage, wall graphics, floor markings, safety communication, and directional systems." },
+    { q: "Do you work with government clients?", a: "Yes. The Sticker Man has experience completing work for government clients and public-sector environments." },
+    { q: "Do you only work on large projects?", a: "No. We also provide business cards, flyers, uniforms, shirts, stickers, banners, signs, vehicle graphics, and other smaller commercial printing and branding services." },
+    { q: "How do I get a quote?", a: "Tell us what you are trying to create. Photos, measurements, existing artwork, inspiration images, project location, and timeline are all helpful, but you do not need to have everything figured out before contacting us." }
+  ];
+  renderVals() {
+    const faqs = this.faqData.map((f, i) => ({
+      q: f.q,
+      a: f.a,
+      open: this.state.faqOpen === i,
+      symbol: this.state.faqOpen === i ? "–" : "+",
+      toggle: () => this.setState(s => ({ faqOpen: s.faqOpen === i ? -1 : i }))
+    }));
+    return {
+      faqs,
+      mobileMenuOpen: this.state.mobileMenuOpen,
+      toggleMobileMenu: () => this.setState(s => ({ mobileMenuOpen: !s.mobileMenuOpen })),
+      closeMobileMenu: () => this.setState({ mobileMenuOpen: false })
+    };
+  }
+}
+
+</script>
+</body>
+</html>
